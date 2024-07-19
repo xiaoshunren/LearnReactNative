@@ -1,40 +1,69 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
-const Nav = styled(motion.nav)`
-  background: #1a1a1a;
-  padding: 1em;
+const Nav = styled.nav`
+  background: linear-gradient(90deg, #ff00cc, #333399, #00ffcc, #ff00cc);
+  background-size: 300% 300%;
+  animation: gradient-flow 8s ease infinite;
+  color: #fff;
+  padding: 1em 2em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
+const NavMenu = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin: 0;
+`;
+
+const NavItem = styled.li`
+  margin: 0 1em;
+`;
+
 const NavLink = styled(Link)`
   color: #fff;
   text-decoration: none;
-  margin: 0 1em;
+  padding: 0.5em 1em;
+  transition: all 0.3s ease;
+  border-radius: 25px;
+
   &:hover {
-    color: #007bff;
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
   return (
-    <Nav
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
-      <h1 style={{ color: '#fff' }}>ハイシンクジャパン-D T C-</h1>
-      <div>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/products">Products</NavLink>
-        <NavLink to="/tech-stack">Tech Stack</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/login">Login</NavLink>
-      </div>
+    <Nav>
+      <NavMenu>
+        <NavItem>
+          <NavLink to="/">Home</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/products">Products</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/tech-stack">Tech Stack</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/contact">Contact</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink to="/login">Login</NavLink>
+        </NavItem>
+      </NavMenu>
+      <SearchBar onSearch={onSearch} />
     </Nav>
   );
 };

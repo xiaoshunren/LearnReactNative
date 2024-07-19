@@ -1,42 +1,65 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import PageContainer from './PageContainer';
 
-const Container = styled.div`
-  padding: 2em;
-  background: #f9f9f9;
-  color: #333;
-  text-align: center;
+const Section = styled.div`
+  margin-bottom: 3em;
 `;
 
-const Form = styled(motion.form)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const FormContainer = styled.div`
+  background: #1a1a1a;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-top: 2em;
+`;
+
+const FormInput = styled.input`
+  padding: 0.5em;
+  width: 100%;
+  margin-bottom: 1em;
+  border: 1px solid #333;
+  background: #0a0a0a;
+  color: #fff;
+`;
+
+const FormTextarea = styled.textarea`
+  padding: 0.5em;
+  width: 100%;
+  margin-bottom: 1em;
+  border: 1px solid #333;
+  background: #0a0a0a;
+  color: #fff;
+`;
+
+const FormButton = styled.button`
+  padding: 0.5em 1em;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #0056b3;
+  }
 `;
 
 const Contact = () => {
   return (
-    <Container>
-      <h1>Contact Us</h1>
-      <p>If you have any questions, feel free to reach out to us!</p>
-      <Form
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <div>
-          <input type="text" placeholder="Your Name" />
-        </div>
-        <div>
-          <input type="email" placeholder="Your Email" />
-        </div>
-        <div>
-          <textarea placeholder="Your Message"></textarea>
-        </div>
-        <button type="submit">Send</button>
-      </Form>
-    </Container>
+    <PageContainer>
+      <Section>
+        <h2 style={{ color: '#00ffcc' }}>Contact Us</h2>
+        <p>DTCホームページをご利用いただきありがとうございます。お問い合わせは下記の入力フォームをご利用ください。</p>
+        <FormContainer>
+          <form>
+            <FormInput type="text" placeholder="Your Name" required />
+            <FormInput type="email" placeholder="Your Email" required />
+            <FormTextarea placeholder="Your Message" rows="5" required />
+            <FormButton type="submit">Submit</FormButton>
+          </form>
+        </FormContainer>
+      </Section>
+    </PageContainer>
   );
 };
 

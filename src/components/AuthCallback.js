@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const AuthCallback = () => {
+const AuthCallback = ({ setUser }) => {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAccessToken = async (code) => {
@@ -14,12 +15,27 @@ const AuthCallback = () => {
           grant_type: 'authorization_code',
           code: code,
         });
-        const { access_token } = response.data;
-        // 保存access_token，并使用它获取用户信息
-        console.log('Access Token:', access_token);
-        navigate('/');
+        const { access_token } = response.data.data;
+        fetchUserInfo(access_token);
       } catch (error) {
         console.error('Error fetching access token:', error);
+        setError('Failed to authenticate. Please try again.');
+      }
+    };
+
+    const fetchUserInfo = async (token) => {
+      try {
+        const response = await axios.get('https://open.feishu.cn/open-apis/contact/v3/users/me', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+        const userInfo = response.data.data;
+        setUser(userInfo);
+        navigate('/');
+      } catch (error) {
+        console.error('Error fetching user info:', error);
+        setError('Failed to fetch user info. Please try again.');
       }
     };
 
@@ -28,9 +44,13 @@ const AuthCallback = () => {
     if (code) {
       fetchAccessToken(code);
     }
-  }, [navigate]);
+  }, [navigate, setUser]);
 
-  return <div>Authenticating...</div>;
+  return (
+    <div>
+      {error ? <p>{error}</p> : <p>Authenticating...</p>}
+    </div>
+  );
 };
 
 export default AuthCallback;

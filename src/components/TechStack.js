@@ -1,47 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import PageContainer from './PageContainer';
 
-const Container = styled.div`
-  padding: 2em;
-  background: #333;
-  color: #fff;
+const Section = styled.div`
+  margin-bottom: 3em;
 `;
 
-const TechCard = styled(motion.div)`
-  background: #444;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5em;
+`;
+
+const Card = styled.div`
+  background: #1a1a1a;
   border-radius: 10px;
-  padding: 1em;
-  margin: 1em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  text-align: center;
+  padding: 1.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 `;
 
 const TechStack = () => {
-  const techList = [
-    { name: 'React', description: 'A JavaScript library for building user interfaces.' },
-    { name: 'Node.js', description: 'JavaScript runtime built on Chrome\'s V8 JavaScript engine.' },
-    { name: 'GraphQL', description: 'A query language for your API.' },
-  ];
-
   return (
-    <Container>
-      <h1>Our Tech Stack</h1>
-      <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap' }}>
-        {techList.map((tech, index) => (
-          <TechCard
-            key={index}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.3 }}
-          >
-            <h2>{tech.name}</h2>
-            <p>{tech.description}</p>
-          </TechCard>
-        ))}
-      </div>
-    </Container>
+    <PageContainer>
+      <Section>
+        <h2 style={{ color: '#00ffcc' }}>Our Technology Stack</h2>
+        <Grid>
+          <Card>
+            <h3 style={{ color: '#ff7f00' }}>Frontend</h3>
+            <p style={{ color: '#aaa' }}>We use React, Redux, and other modern frontend technologies to build responsive and dynamic user interfaces.</p>
+          </Card>
+          <Card>
+            <h3 style={{ color: '#ff7f00' }}>Backend</h3>
+            <p style={{ color: '#aaa' }}>Our backend is powered by Node.js, Express, and MongoDB, ensuring robust and scalable server-side operations.</p>
+          </Card>
+          <Card>
+            <h3 style={{ color: '#ff7f00' }}>DevOps</h3>
+            <p style={{ color: '#aaa' }}>We leverage Docker, Kubernetes, and CI/CD pipelines to streamline our development and deployment processes.</p>
+          </Card>
+          <Card>
+            <h3 style={{ color: '#ff7f00' }}>Cloud</h3>
+            <p style={{ color: '#aaa' }}>Our solutions are hosted on AWS, providing high availability, security, and scalability.</p>
+          </Card>
+        </Grid>
+      </Section>
+    </PageContainer>
   );
 };
 
