@@ -12,7 +12,7 @@ const Section = styled.div`
 `;
 
 const Banner = styled.div`
-  background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+  background: url('') no-repeat center center/cover;
   height: 400px;
   display: flex;
   justify-content: center;
@@ -69,52 +69,104 @@ const ServiceCard = styled(Card)`
 
 const TeamCard = styled(Card)`
   text-align: center;
+  padding: 1.5em;
+  background: linear-gradient(135deg, rgba(255, 0, 204, 0.1), rgba(51, 51, 153, 0.1));
+  border: 1px solid rgba(255, 0, 204, 0.3);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 0, 204, 0.3);
+  }
+`;
+
+const TeamImage = styled.img`
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1em;
+`;
+
+const TeamName = styled.h3`
+  font-size: 1.25em;
+  color: #ff00cc;
+`;
+
+const TeamRole = styled.p`
+  font-size: 1em;
+  color: #aaa;
+  margin-bottom: 0.5em;
+`;
+
+const TeamDescription = styled.p`
+  font-size: 0.875em;
+  color: #aaa;
 `;
 
 const TestimonialCard = styled(Card)`
   text-align: center;
 `;
 
+const members = [
+  { name: '徐 力明', role: '指導者', img: '/images/members/徐 力明.png', description: 'Description for member 1' },
+  { name: '王暁', role: '指導者', img: '/images/members/GL_王暁.png', description: 'Description for member 2' },
+  { name: '馬 青松', role: '指導者', img: '/images/members/馬 青松.png', description: 'Description for member 3' },
+  { name: '于 成林', role: '指導者', img: '/images/members/于 成林.png', description: 'Description for member 4' },
+  { name: '于 成林', role: '指導者', img: '/images/members/于 氷飛.png', description: 'Description for member 5' },
+  { name: '葛 妮娜', role: '指導者', img: '/images/members/葛 妮娜 (Selina).png', description: 'Description for member 6' },
+  { name: '夏 思萌', role: 'SM', img: '/images/members/夏 思萌.png', description: 'Description for member 7' },
+  { name: '王 璟恬', role: 'SM辅佐', img: '/images/members/王 璟恬.png', description: 'Description for member 8' },
+  { name: '王 月宵', role: 'UIUX設計', img: '/images/members/王 月宵.png', description: 'Description for member 9' },
+  { name: '赫 昊宇', role: 'インフラ', img: '/images/members/赫 昊宇.png', description: 'Description for member 10' },
+  { name: '黄 軻', role: 'フロントエンド開発', img: '/images/members/黄 軻.png', description: 'Description for member 11' },
+  { name: '宋 爽', role: 'フロントエンド開発', img: '/images/members/宋 爽.png', description: 'Description for member 12' },
+  { name: '梁 紫莹', role: 'バックエンド開発', img: '/images/members/梁 紫莹.png', description: 'Description for member 13' },
+  { name: '李 夢磊', role: 'バックエンド開発', img: '/images/members/李 夢磊.png', description: 'Description for member 14' },
+  { name: '衣 福鵬', role: 'バックエンド開発', img: '/images/members/衣 福鵬.png', description: 'Description for member 15' },
+  { name: '肖 舜仁', role: 'PO', img: '/images/members/肖 舜仁.png', description: 'Description for member 16' },
+];
+
 const Home = () => {
   return (
     <PageContainer>
       <Banner>
-        <Heading>Welcome to DTC</Heading>
+        <Heading>Welcome to D T C</Heading>
       </Banner>
 
       <Section>
         <SubHeading>Innovating the Future</SubHeading>
-        <p>DTでお客様のビジネスに貢献します。</p>
+        <p>Keep Going!</p>
       </Section>
 
       <Section>
         <h2 style={{ color: '#ff00cc' }}>Our Products</h2>
         <Grid>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 1" />
-            <h3 style={{ color: '#ff00cc' }}>WorkTempo</h3>
-            <p style={{ color: '#aaa' }}>AI最適解アルゴリズムとルールエンジン</p>
+            <Image src="/images/スクリーンショット 2024-07-19 100738.png" alt="Product 1" />
+            <h3 style={{ color: '#ff00cc' }}>AI チャットアプリ</h3>
+            <p style={{ color: '#aaa' }}>ミニマムサイズのチャットボット機能のご紹介</p>
           </Card>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 2" />
-            <h3 style={{ color: '#ff00cc' }}>SmartTempo</h3>
-            <p style={{ color: '#aaa' }}>人工知能技術応用プラットフォームの製品群</p>
+            <Image src="/images/スクリーンショット 2024-07-19 100712.png" alt="Product 2" />
+            <h3 style={{ color: '#ff00cc' }}>AI Forecast</h3>
+            <p style={{ color: '#aaa' }}>AI 需要予測は機械学習により、受注に影響を与える要因とその影響度合いを自動分析で発注数と発注タイミングの最適化</p>
           </Card>
         </Grid>
       </Section>
 
       <Section>
-        <h2 style={{ color: '#ff00cc' }}>Our Videos</h2>
+        <h2 style={{ color: '#ff00cc' }}>Our Solution</h2>
         <Grid>
           <Card>
-            <Video src="https://www.example.com/version_pro.mp4" controls />
-            <h3 style={{ color: '#ff00cc' }}>TEMPO SERIES SOLUTIONS</h3>
-            <p style={{ color: '#aaa' }}>TEMPO SERIES SOLUTIONS</p>
+            <Video src="/videos/Lark20240719-093644.mp4" controls />
+            <h3 style={{ color: '#ff00cc' }}>ProcessCopilot</h3>
+            <p style={{ color: '#aaa' }}>ProcessCopilot製品についてのご紹介
+            </p>
           </Card>
           <Card>
-            <Video src="https://www.example.com/it_tech_stack.mp4" controls />
-            <h3 style={{ color: '#ff00cc' }}>ARTIFICIAL INTELLIGENCE</h3>
-            <p style={{ color: '#aaa' }}>ARTIFICIAL INTELLIGENCE</p>
+            <Video src="/videos/Lark20240719-093656.mp4" controls />
+            <h3 style={{ color: '#ff00cc' }}>ProcessCopilot</h3>
+            <p style={{ color: '#aaa' }}>ProcessCopilot機能説明</p>
           </Card>
         </Grid>
       </Section>
@@ -138,23 +190,17 @@ const Home = () => {
       </Section>
 
       <Section>
-        <h2 style={{ color: '#ff00cc' }}>Meet Our Team</h2>
+        <h2 style={{ color: '#ff00cc' }}>Meet Our Team</h2
+        >
         <Grid>
-          <TeamCard>
-            <Image src="https://via.placeholder.com/150" alt="Team Member 1" />
-            <h3 style={{ color: '#ff00cc' }}>Member 1</h3>
-            <p style={{ color: '#aaa' }}>Role of member 1. With extensive experience in the industry, they lead our team with expertise and vision.</p>
-          </TeamCard>
-          <TeamCard>
-            <Image src="https://via.placeholder.com/150" alt="Team Member 2" />
-            <h3 style={{ color: '#ff00cc' }}>Member 2</h3>
-            <p style={{ color: '#aaa' }}>Role of member 2. They are known for their innovative approach and dedication to excellence.</p>
-          </TeamCard>
-          <TeamCard>
-            <Image src="https://via.placeholder.com/150" alt="Team Member 3" />
-            <h3 style={{ color: '#ff00cc' }}>Member 3</h3>
-            <p style={{ color: '#aaa' }}>Role of member 3. Their technical expertise and problem-solving skills are invaluable to our team.</p>
-          </TeamCard>
+          {members.map((member, index) => (
+            <TeamCard key={index}>
+              <TeamImage src={member.img} alt={member.name} />
+              <TeamName>{member.name}</TeamName>
+              <TeamRole>{member.role}</TeamRole>
+              <TeamDescription>{member.description}</TeamDescription>
+            </TeamCard>
+          ))}
         </Grid>
       </Section>
 

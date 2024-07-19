@@ -147,7 +147,7 @@ form button:hover {
   position: absolute;
   width: 15px;
   height: 15px;
-  background: rgba(255, 0, 204, 0.3);
+  background: rgba(117, 12, 202, 0.3);
   /* 霓虹粉色的透明色 */
   border-radius: 50%;
   pointer-events: none;
@@ -197,7 +197,7 @@ form button:hover {
 }
 
 .card h3 {
-  color: #ff00cc;
+  color: #4df7ee;
 }
 
 .card p {

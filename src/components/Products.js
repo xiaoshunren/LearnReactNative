@@ -32,24 +32,24 @@ const Products = () => {
         <h2 style={{ color: '#00ffcc' }}>Our Products</h2>
         <Grid>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 1" />
-            <h3 style={{ color: '#ff7f00' }}>Product 1</h3>
-            <p style={{ color: '#aaa' }}>Product 1 is a state-of-the-art solution that offers unparalleled performance and reliability.</p>
+            <Image src="/images/スクリーンショット 2024-07-19 115148.png" alt="Product 1" />
+            <h3 style={{ color: '#ff7f00' }}>Work Tempo</h3>
+            <p style={{ color: '#aaa' }}>AI最適解アルゴリズムとルールエンジン</p>
           </Card>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 2" />
-            <h3 style={{ color: '#ff7f00' }}>Product 2</h3>
-            <p style={{ color: '#aaa' }}>Product 2 is designed to enhance your productivity and streamline your workflow.</p>
+            <Image src="/images/スクリーンショット 2024-07-19 115212.png" alt="Product 2" />
+            <h3 style={{ color: '#ff7f00' }}>Smart Tempo</h3>
+            <p style={{ color: '#aaa' }}>人工知能技術応用プラットフォームの製品群</p>
           </Card>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 3" />
-            <h3 style={{ color: '#ff7f00' }}>Product 3</h3>
-            <p style={{ color: '#aaa' }}>Product 3 offers cutting-edge features that are perfect for modern businesses.</p>
+            <Image src="/images/スクリーンショット 2024-07-19 115233.png" alt="Product 3" />
+            <h3 style={{ color: '#ff7f00' }}>Find Tempo</h3>
+            <p style={{ color: '#aaa' }}>IoT技術を活用し、資産管理システム</p>
           </Card>
           <Card>
-            <Image src="https://via.placeholder.com/600" alt="Product 4" />
-            <h3 style={{ color: '#ff7f00' }}>Product 4</h3>
-            <p style={{ color: '#aaa' }}>Product 4 is a reliable and efficient solution for your business needs.</p>
+            <Image src="/images/スクリーンショット 2024-07-19 115252.png" alt="Product 4" />
+            <h3 style={{ color: '#ff7f00' }}>Device Tempo</h3>
+            <p style={{ color: '#aaa' }}>クラウドデバイスをベースとした自動テストソリューション一式</p>
           </Card>
         </Grid>
       </Section>

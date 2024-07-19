@@ -71,9 +71,27 @@ const Button = styled.button`
   }
 `;
 
+const ToggleButton = styled(Button)`
+  background: none;
+  border: 1px solid #ff00cc;
+  margin-top: 1em;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
+  }
+`;
+
+const QRCodeImage = styled.img`
+  width: 200px;
+  height: 200px;
+  margin: 1em 0;
+`;
+
 const LarkLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [useQRCode, setUseQRCode] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -90,23 +108,36 @@ const LarkLogin = () => {
       <LoginBox>
         <Logo src="https://via.placeholder.com/150" alt="Company Logo" />
         <Heading>Login to Lark</Heading>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            required
-          />
-          <Input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
-            required
-          />
-          <Button type="submit">Login</Button>
-        </form>
+        {useQRCode ? (
+          <div>
+            <QRCodeImage src="https://via.placeholder.com/200" alt="QR Code" />
+            <p style={{ color: '#aaa' }}>Scan the QR code with your Lark app to login</p>
+            <ToggleButton onClick={() => setUseQRCode(false)}>
+              Use Email & Password
+            </ToggleButton>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <Input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+            />
+            <Input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+            />
+            <Button type="submit">Login</Button>
+            <ToggleButton onClick={() => setUseQRCode(true)}>
+              Use QR Code
+            </ToggleButton>
+          </form>
+        )}
       </LoginBox>
     </LoginContainer>
   );
