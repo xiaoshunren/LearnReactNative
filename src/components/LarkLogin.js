@@ -106,11 +106,11 @@ const LarkLogin = () => {
   return (
     <LoginContainer>
       <LoginBox>
-        <Logo src="https://via.placeholder.com/150" alt="Company Logo" />
+        <Logo src="/images/スクリーンショット 2024-07-19 133253.png" alt="Company Logo" />
         <Heading>Login to Lark</Heading>
         {useQRCode ? (
           <div>
-            <QRCodeImage src="https://via.placeholder.com/200" alt="QR Code" />
+            <QRCodeImage src="/images/スクリーンショット 2024-07-19 133028.png"  alt="QR Code" />
             <p style={{ color: '#aaa' }}>Scan the QR code with your Lark app to login</p>
             <ToggleButton onClick={() => setUseQRCode(false)}>
               Use Email & Password
